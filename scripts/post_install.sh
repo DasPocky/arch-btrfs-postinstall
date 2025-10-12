@@ -126,7 +126,11 @@ if [[ "$TS_MODE" == "btrfs" ]]; then
   mkdir -p "$WORK_MNT"
   if mount -o subvolid=0 "$ROOT_DEV" "$WORK_MNT" 2>/dev/null; then
     for SV in "@" "@home" "@log" "@pkg"; do
-      [[ -d "$WORK_MNT/$SV" ]] && echo " - gefunden: $SV" || warn " - fehlt: $SV (nicht kritisch)"
+      if [[ -d "$WORK_MNT/$SV" ]]; then
+        echo " - gefunden: $SV"
+      else
+        warn " - fehlt: $SV (nicht kritisch)"
+      fi
     done
     umount "$WORK_MNT" || true
   else
