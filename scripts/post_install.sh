@@ -86,7 +86,7 @@ TSCFG="/etc/timeshift/timeshift.json"
 log "Timeshift konfigurieren (Modus: $TS_MODE)"
 # Mit @home sichern und wiederherstellen, Standard-Aufbewahrung
 # Werte als Strings (Timeshift-Format)
-cat > "$TSCFG" <<EOF
+cat > "$TSCFG" << EOF
 {
   "backup_device_uuid" : "${ROOT_UUID:-}",
   "parent_device_uuid" : "",
