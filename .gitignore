@@ -1,0 +1,11 @@
+# Allgemein
+.DS_Store
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Keine Binärartefakte im Repo
+*.tar
+*.gz
+*.zip
